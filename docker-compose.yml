@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  finalproject:
+    image: finalproject:latest
+    container_name: finalproject_container
+    ports:
+      - "8080:8080"  # Map container port to host

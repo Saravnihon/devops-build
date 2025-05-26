@@ -10,7 +10,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                        docker.build("${DOCKER_DEV_REPO}:${imageTag}")
+                        docker build -t "${DOCKER_DEV_REPO}:${imageTag}" .
                 }
             }
         }

@@ -18,12 +18,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    def imageTag = "${env.BUILD_NUMBER}"
-                    if (env.BRANCH_NAME == 'dev') {
                         docker.build("${DOCKER_DEV_REPO}:${imageTag}")
-                    } else if (env.BRANCH_NAME == 'master') {
-                        docker.build("${DOCKER_PROD_REPO}:${imageTag}")
-                    }
                 }
             }
         }
@@ -32,12 +27,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('', DOCKER_CREDENTIALS_ID) {
-                        def imageTag = "${env.BUILD_NUMBER}"
-                        if (env.BRANCH_NAME == 'dev') {
                             docker.image("${DOCKER_DEV_REPO}:${imageTag}").push()
-                        } else if (env.BRANCH_NAME == 'master') {
-                            docker.image("${DOCKER_PROD_REPO}:${imageTag}").push()
-                        }
                     }
                 }
             }

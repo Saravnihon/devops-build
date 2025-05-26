@@ -5,15 +5,7 @@ pipeline {
         DOCKER_DEV_REPO = 'saravnihon/dev'
         DOCKER_PROD_REPO = 'saravnihon/prod'
     }
-    triggers {
-        githubPush()
-    }
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: "${env.BRANCH_NAME}", credentialsId: '195f99fa-2a7d-45c9-8307-c300031aac48', url: 'https://github.com/saravnihon/devops-build.git'
-            }
-        }
 
         stage('Build Docker Image') {
             steps {

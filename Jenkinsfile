@@ -10,7 +10,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                        docker build -t "${DOCKER_DEV_REPO}" .
+                        docker build -t saravnihon/dev .
                 }
             }
         }

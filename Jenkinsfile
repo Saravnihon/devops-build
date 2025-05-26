@@ -10,7 +10,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                        docker build -t "${DOCKER_DEV_REPO}:${imageTag}" .
+                        docker build -t "${DOCKER_DEV_REPO}" .
                 }
             }
         }
@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('', DOCKER_CREDENTIALS_ID) {
-                            docker.image("${DOCKER_DEV_REPO}:${imageTag}").push()
+                            docker.image("${DOCKER_DEV_REPO}").push()
                     }
                 }
             }

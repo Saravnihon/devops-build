@@ -1,3 +1,3 @@
-docker login -u saravnihon -p Fujitsu@12345
-docker tag finalproject saravnihon/finalprojectrepo1
-docker push saravnihon/finalprojectrepo1
+docker login -u saravnihon -p dckr_pat_S_yMzaMrkLy1cj3aASOJaxLnGqA
+docker tag finalproject saravnihon/prod
+docker push saravnihon/prod
